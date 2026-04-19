@@ -1,0 +1,47 @@
+version: '3'
+
+vars:
+  PORT: '8080'
+  HOST: 'localhost'
+
+tasks:
+  default:
+    cmds:
+      - task: dev
+
+  check:
+    desc: Syntax-check all JS files (as ES modules, to support top-level await)
+    cmds:
+      - |
+        all_ok=true
+        while IFS= read -r f; do
+          if node --check --input-type=module < "$f" 2>&1; then
+            echo "[OK] $f"
+          else
+            echo "[FAIL] $f"
+            all_ok=false
+          fi
+        done < <(find scripts pages -name "*.js" | sort)
+        $all_ok && echo "All files OK" || exit 1
+
+  serve:
+    desc: Start local HTTP server (required as ES modules don't work over file://)
+    cmds:
+      - python3 -m http.server {{.PORT}} --bind {{.HOST}}
+    silent: false
+
+  open:
+    desc: Open the site in the default browser
+    cmds:
+      - cmd: xdg-open http://{{.HOST}}:{{.PORT}}
+        platforms: [linux]
+      - cmd: open http://{{.HOST}}:{{.PORT}}
+        platforms: [darwin]
+      - cmd: start http://{{.HOST}}:{{.PORT}}
+        platforms: [windows]
+
+  dev:
+    desc: Serve and open in browser
+    deps: [check, serve]
+    cmds:
+      - task: open

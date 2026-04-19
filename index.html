@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desktop</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" href="assets/icons/computer.png">
+</head>
+<body>
+  <div id="desktop">
+    <div id="icon-grid"></div>
+    <div id="window-container"></div>
+  </div>
+  <div id="taskbar">
+    <div id="start-area">
+      <button id="start-btn">
+        <img src="assets/icons/computer.png" alt="">
+        <span>Start</span>
+      </button>
+      <div id="start-menu" class="hidden">
+        <div id="start-menu-items"></div>
+      </div>
+    </div>
+    <div id="taskbar-windows"></div>
+    <div id="taskbar-clock"></div>
+  </div>
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

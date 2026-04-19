@@ -1,0 +1,121 @@
+/* === IE6 browser chrome ==================================================== */
+.ie6-chrome {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ie6-menubar {
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  font-size: 11px;
+  background: var(--window-bg);
+  flex-shrink: 0;
+}
+
+.ie6-menubar span {
+  padding: 2px 6px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+}
+
+.ie6-menubar span:hover {
+  background: var(--select-bg);
+  color: var(--text-selected);
+}
+
+.ie6-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 1px;
+  background: var(--window-bg);
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  flex-shrink: 0;
+}
+
+.ie6-toolbar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 44px;
+  padding: 2px 4px;
+  font-size: 9px;
+  background: none;
+  border: 1px solid transparent;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+  gap: 1px;
+}
+
+.ie6-toolbar-btn:hover {
+  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+  box-shadow: inset -1px -1px 0 var(--border-mid), inset 1px 1px 0 var(--border-darker);
+}
+
+.ie6-toolbar-sep {
+  width: 1px;
+  align-self: stretch;
+  margin: 2px 4px;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-light);
+}
+
+.ie6-addressbar {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 4px;
+  font-size: 11px;
+  background: var(--window-bg);
+  border-bottom: 1px solid var(--border-dark);
+  flex-shrink: 0;
+}
+
+.ie6-addressbar label {
+  flex-shrink: 0;
+  color: var(--text);
+}
+
+.ie6-addressbar input {
+  flex: 1;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 1px 4px;
+  background: var(--border-light);
+  color: var(--text);
+  border: 2px solid;
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark);
+}
+
+.ie6-addressbar button {
+  padding: 1px 8px;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.ie6-viewport {
+  flex: 1;
+  overflow: auto;
+  background: #fff;
+}
+
+.ie6-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px 8px;
+  font-size: 11px;
+  background: var(--window-bg);
+  border-top: 1px solid var(--border-dark);
+  flex-shrink: 0;
+  min-height: 18px;
+}
+
+.ie6-statusbar .ie6-status-zone {
+  border: 1px solid var(--border-dark);
+  padding: 0 8px;
+  font-size: 10px;
+}
+

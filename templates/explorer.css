@@ -1,0 +1,151 @@
+/* === Win98 Explorer grid (reused by projects, games, music pages) ========== */
+.win98-explorer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+  padding: 8px;
+  background: var(--border-light);
+}
+
+.win98-explorer-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  padding: 4px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+  user-select: none;
+  text-align: center;
+}
+
+.win98-explorer-icon img {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+.win98-explorer-icon span {
+  margin-top: 4px;
+  font-size: 11px;
+  word-break: break-word;
+}
+
+.win98-explorer-icon:hover { outline: 1px dotted var(--border-dark); background: rgba(0,0,128,0.1); }
+.win98-explorer-icon.selected { background: var(--select-bg); color: var(--text-selected); outline: 1px dotted var(--border-light); }
+.win98-explorer-icon.selected img { filter: saturate(0) brightness(2) opacity(0.8); }
+
+/* === Win98 explorer chrome (menu bar, toolbar, address, status) ============ */
+.explorer-chrome {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.explorer-menubar {
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  font-size: 11px;
+  background: var(--window-bg);
+  flex-shrink: 0;
+}
+
+.explorer-menubar span {
+  padding: 2px 6px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+}
+
+.explorer-menubar span:hover {
+  background: var(--select-bg);
+  color: var(--text-selected);
+}
+
+.explorer-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 2px;
+  background: var(--window-bg);
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  flex-shrink: 0;
+}
+
+.explorer-toolbar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  padding: 2px 4px;
+  font-size: 9px;
+  background: none;
+  border: 1px solid transparent;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+  gap: 1px;
+}
+
+.explorer-toolbar-btn:hover {
+  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+  box-shadow: inset -1px -1px 0 var(--border-mid), inset 1px 1px 0 var(--border-darker);
+}
+
+.explorer-toolbar-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.explorer-toolbar-sep {
+  width: 1px;
+  align-self: stretch;
+  margin: 2px 4px;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-light);
+}
+
+.explorer-addressbar {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 4px;
+  font-size: 11px;
+  background: var(--window-bg);
+  border-bottom: 1px solid var(--border-dark);
+  flex-shrink: 0;
+}
+
+.explorer-addressbar label {
+  flex-shrink: 0;
+  color: var(--text);
+}
+
+.explorer-addressbar input {
+  flex: 1;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 1px 4px;
+  background: var(--border-light);
+  color: var(--text);
+  border: 2px solid;
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark);
+}
+
+.explorer-body {
+  flex: 1;
+  overflow: auto;
+  background: var(--border-light);
+}
+
+.explorer-statusbar {
+  display: flex;
+  align-items: center;
+  padding: 1px 8px;
+  font-size: 11px;
+  background: var(--window-bg);
+  border-top: 1px solid var(--border-dark);
+  flex-shrink: 0;
+  min-height: 18px;
+}
+

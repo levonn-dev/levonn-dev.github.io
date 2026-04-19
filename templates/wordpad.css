@@ -1,0 +1,153 @@
+/* === Wordpad editor chrome ================================================= */
+.wordpad-chrome {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--window-bg);
+}
+
+.wordpad-menubar {
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.wordpad-menubar span {
+  padding: 2px 6px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+}
+
+.wordpad-menubar span:hover { background: var(--select-bg); color: var(--text-selected); }
+
+.wordpad-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 1px;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-mid);
+  flex-shrink: 0;
+}
+
+.wordpad-tool-btn {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  background: var(--window-bg);
+  border: 1px solid transparent;
+  cursor: default;
+  opacity: 0.6;
+}
+
+.wordpad-tool-sep {
+  width: 1px;
+  height: 18px;
+  margin: 0 3px;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-light);
+}
+
+.wordpad-formatbar {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  gap: 2px;
+  border-bottom: 1px solid var(--border-dark);
+  flex-shrink: 0;
+  font-size: 11px;
+}
+
+.wordpad-font-select, .wordpad-size-select {
+  font-family: inherit;
+  font-size: 11px;
+  height: 18px;
+  border: 2px solid;
+  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+  background: var(--border-light);
+  padding: 0 2px;
+}
+
+.wordpad-font-select { width: 120px; }
+.wordpad-size-select { width: 36px; }
+
+.wordpad-fmt-btn {
+  width: 20px;
+  height: 18px;
+  font-size: 11px;
+  font-family: serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--window-bg);
+  border: 1px solid transparent;
+  opacity: 0.6;
+  cursor: default;
+}
+
+.wordpad-fmt-sep {
+  width: 1px;
+  height: 14px;
+  margin: 0 2px;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-light);
+}
+
+.wordpad-ruler {
+  height: 18px;
+  background: var(--border-light);
+  border-bottom: 1px solid var(--border-dark);
+  border-top: 1px solid var(--border-mid);
+  flex-shrink: 0;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--border-dark) 0px, var(--border-dark) 1px,
+    transparent 1px, transparent 9px
+  );
+  background-size: 10px 8px;
+  background-position: 8px 10px;
+  background-repeat: repeat-x;
+}
+
+.wordpad-body {
+  flex: 1;
+  overflow: auto;
+  background: var(--border-dark);
+  padding: 12px;
+}
+
+.wordpad-page {
+  background: var(--border-light);
+  min-height: 100%;
+  padding: 24px 32px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  font-family: 'Times New Roman', serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.wordpad-page h1 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-family: 'Times New Roman', serif;
+}
+
+.wordpad-page p { margin-bottom: 10px; }
+
+.wordpad-statusbar {
+  height: 18px;
+  border-top: 1px solid var(--border-dark);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 11px;
+}
+

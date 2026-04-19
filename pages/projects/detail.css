@@ -1,0 +1,17 @@
+/* === Project detail dialog ================================================= */
+.project-detail { padding: 12px; font-size: 11px; }
+.project-detail-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.project-detail-header img { width: 32px; height: 32px; image-rendering: pixelated; }
+.project-detail-name { font-weight: bold; font-size: 13px; }
+.project-detail-year { color: #666; }
+.project-detail-divider { border: none; border-top: 1px solid var(--border-dark); margin: 6px 0; }
+.project-detail-desc { margin-bottom: 8px; line-height: 1.5; }
+.project-detail-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+.project-detail-tags span {
+  background: var(--window-bg);
+  border: 1px solid var(--border-dark);
+  padding: 1px 6px;
+  font-size: 10px;
+}
+.project-detail-actions { display: flex; justify-content: flex-end; }
+.detail-visit-link { text-decoration: none; display: inline-flex; align-items: center; }
