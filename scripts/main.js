@@ -40,7 +40,7 @@ class WindowManager {
       if (!config) return;
       this._initWindow(id, config);
     }
-    this._show(id);
+    return this._show(id);
   }
 
   close(id) {
@@ -50,6 +50,19 @@ class WindowManager {
     win.state = 'closed';
     this._hideTaskbarBtn(id);
     this._defocusAll();
+    if (win.closeHandlers) {
+      win.closeHandlers.forEach(cb => { try { cb(); } catch (_) { /* swallow */ } });
+    }
+  }
+
+  // Register a callback fired when the given window is closed. Multiple
+  // handlers can be registered per window. Used by content scripts that need
+  // to release resources (e.g. pause audio when the music window closes).
+  onClose(id, callback) {
+    const win = this._windows.get(id);
+    if (!win) return;
+    if (!win.closeHandlers) win.closeHandlers = [];
+    win.closeHandlers.push(callback);
   }
 
   focus(id) {
@@ -70,7 +83,7 @@ class WindowManager {
     if (!this._windows.has(config.id)) {
       this._initWindow(config.id, config);
     }
-    this._show(config.id);
+    return this._show(config.id);
   }
 
   // == Private ===============================================================
@@ -86,7 +99,7 @@ class WindowManager {
     }
     this._showTaskbarBtn(id);
     this.focus(id);
-    this._loadContent(id);
+    return this._loadContent(id);
   }
 
   _initWindow(id, config) {
@@ -505,7 +518,13 @@ class Clock {
 
   start() {
     this._tick();
-    setInterval(() => this._tick(), 1000);
+    // Align to the next minute boundary, then tick once per minute thereafter.
+    const now = new Date();
+    const msToNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+    setTimeout(() => {
+      this._tick();
+      setInterval(() => this._tick(), 60_000);
+    }, msToNextMinute);
   }
 
   _tick() {

@@ -27,7 +27,7 @@ Three layers, composed bottom-up:
 
 1. **Desktop shell** (`scripts/main.js`): `WindowManager` builds Win98 window elements, `IconGrid` manages draggable desktop icons, `Taskbar` renders the Start menu and open-window buttons, `Clock` ticks the HH:MM readout.
 
-2. **App chrome templates** (`templates/`): reusable Win98 application UIs, each a self-contained HTML + CSS pair. Current templates are `explorer` (Win98 file explorer), `ie6` (Internet Explorer 6), and `wordpad` (Wordpad editor). Each template declares its own CSS via a `<link>` tag at the top; when first loaded, that link is extracted into `<head>` (deduped).
+2. **App chrome templates** (`templates/`): reusable Win98 application UIs, each a self-contained HTML + CSS pair. Current templates are `explorer` (Win98 file explorer), `ie6` (Internet Explorer 6), `wordpad` (Wordpad editor), and `wmp` (Windows Media Player). Each template declares its own CSS via a `<link>` tag at the top; when first loaded, that link is extracted into `<head>` (deduped).
 
 3. **Page content** (`pages/<id>/`): the stuff that goes inside a window. Each page has an `index.html` that typically just declares a `<script type="module">` pointing to an `init.js`. The init script loads the appropriate chrome template and populates it.
 
@@ -48,10 +48,12 @@ www/
     explorer.js       loadExplorerTemplate
     ie6.js            loadIE6Template
     wordpad.js        loadWordpadTemplate
+    wmp.js            loadWMPTemplate
   templates/          reusable Win98 app chrome, one HTML + CSS pair per template
     explorer.*        Win98 file explorer
     ie6.*             IE6 browser
     wordpad.*         Wordpad editor
+    wmp.*             Windows Media Player
   assets/
     fonts/            pixel font
     cursors/          custom cursors
@@ -65,7 +67,7 @@ www/
     resume/           IE6 page displaying current resume
     projects/         Explorer page with separate entries for each project
     games/            Explorer page with separate sub-pages for each game
-    music/            Explorer page that will be populated later
+    music/            Media Player page with music
 ```
 
 ## Adding Content
@@ -110,12 +112,29 @@ await loadWordpadTemplate(contentEl, { html: '<p>...</p>' });
 ```
 
 ```js
-// File explorer (pages/projects, games, music)
+// File explorer (pages/projects, games)
 import { loadExplorerTemplate } from '../../scripts/explorer.js';
 await loadExplorerTemplate(contentEl, {
   path: 'Projects',
   items: [{ icon: '...', name: '...' }, /* ... */],
   onItemClick: (item) => { /* ... */ },
+});
+```
+
+```js
+// Windows Media Player (pages/music)
+import { loadWMPTemplate } from '../../scripts/wmp.js';
+await loadWMPTemplate(contentEl, {
+  album: {
+    title: 'Album Name', artist: 'Artist', meta: '2024 ; Genre',
+    cover: 'assets/music/album/cover.jpg',
+    downloadUrl: 'assets/downloads/album.zip',  // optional
+    tracks: [
+      { title: 'Intro', duration: '1:52', src: 'assets/music/album/01.mp3' },
+      // ...
+    ],
+  },
+  about: 'Optional paragraph shown above the tracklist.',
 });
 ```
 

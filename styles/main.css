@@ -19,6 +19,11 @@
   --text-selected:  #ffffff;
   --select-bg:      #000080;
 
+  /* Decorative accents (links, headings, callouts). Distinct from --select-bg
+     so a custom selection color can be themed independently. */
+  --accent:         #000080;
+  --accent-visited: #551a8b;
+
   --taskbar-height: 32px;
 }
 

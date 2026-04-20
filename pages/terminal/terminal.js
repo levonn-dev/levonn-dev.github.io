@@ -65,6 +65,7 @@ function init() {
     if (!raw) return;
 
     history.push(raw);
+    if (history.length > 100) history.shift();
     historyIdx = history.length;
 
     terminal.print(`C:\\> ${raw}`);

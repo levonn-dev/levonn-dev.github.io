@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="templates/wmp.css">
+<div class="wmp-chrome">
+  <div class="wmp-menubar">
+    <span><u>F</u>ile</span>
+    <span><u>V</u>iew</span>
+    <span><u>P</u>lay</span>
+    <span><u>T</u>ools</span>
+    <span><u>H</u>elp</span>
+  </div>
+
+  <div class="wmp-body">
+    <div class="wmp-nav">
+      <div class="wmp-nav-section selected">Now Playing</div>
+      <div class="wmp-nav-section">Media Library</div>
+      <div class="wmp-nav-section">Radio Tuner</div>
+      <div class="wmp-nav-section">Portable Device</div>
+      <div class="wmp-nav-section">Skin Chooser</div>
+    </div>
+
+    <div class="wmp-content">
+      <div class="wmp-album-header">
+        <img class="wmp-cover" src="" alt="">
+        <div class="wmp-album-info">
+          <div class="wmp-album-title"></div>
+          <div class="wmp-album-artist"></div>
+          <div class="wmp-album-meta"></div>
+          <a class="wmp-download" href="#" download hidden>Download Album</a>
+        </div>
+      </div>
+
+      <div class="wmp-section-label">About</div>
+      <p class="wmp-about"></p>
+
+      <div class="wmp-section-label">Tracks</div>
+      <table class="wmp-tracklist">
+        <thead>
+          <tr><th>#</th><th>Title</th><th>Length</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="wmp-controls">
+    <button class="wmp-btn wmp-prev" title="Previous">&#9198;</button>
+    <button class="wmp-btn wmp-play" title="Play">&#9654;</button>
+    <button class="wmp-btn wmp-stop" title="Stop">&#9209;</button>
+    <button class="wmp-btn wmp-next" title="Next">&#9197;</button>
+    <input class="wmp-progress" type="range" min="0" max="0" value="0" step="0.1">
+    <span class="wmp-time">00:00 / 00:00</span>
+  </div>
+</div>

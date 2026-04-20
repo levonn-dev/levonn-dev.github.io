@@ -1,0 +1,280 @@
+/* === Windows Media Player chrome ============================================ */
+.wmp-chrome {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--window-bg);
+}
+
+.wmp-menubar {
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.wmp-menubar span {
+  padding: 2px 6px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+}
+
+.wmp-menubar span:hover {
+  background: var(--select-bg);
+  color: var(--text-selected);
+}
+
+.wmp-body {
+  flex: 1;
+  display: flex;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.wmp-nav {
+  width: 120px;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, #1f3a85, #04144a);
+  color: #fff;
+  font-size: 11px;
+  padding: 8px 0;
+}
+
+.wmp-nav-section {
+  padding: 4px 12px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+}
+
+.wmp-nav-section:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.wmp-nav-section.selected {
+  background: var(--border-light);
+  color: var(--text);
+  font-weight: bold;
+}
+
+.wmp-content {
+  flex: 1;
+  overflow: auto;
+  background: var(--border-light);
+  padding: 12px;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.wmp-album-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.wmp-cover {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid;
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark);
+  flex-shrink: 0;
+}
+
+.wmp-album-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wmp-album-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.wmp-album-artist {
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.wmp-album-meta {
+  font-size: 10px;
+  color: var(--border-dark);
+}
+
+.wmp-download {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 3px 12px;
+  background: var(--window-bg);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 11px;
+  font-family: inherit;
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+  box-shadow: inset -1px -1px 0 var(--border-dark), inset 1px 1px 0 var(--border-mid);
+}
+
+.wmp-download:hover { text-decoration: underline; }
+.wmp-download:active {
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark), inset -1px -1px 0 var(--border-mid);
+}
+
+.wmp-section-label {
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 2px;
+}
+
+.wmp-about {
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.wmp-tracklist {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.wmp-tracklist th {
+  text-align: left;
+  font-weight: bold;
+  padding: 3px 6px;
+  background: var(--window-bg);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.wmp-tracklist td {
+  padding: 3px 6px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+}
+
+.wmp-tracklist tbody tr:hover {
+  background: rgba(0, 0, 128, 0.1);
+}
+
+.wmp-tracklist tbody tr.playing {
+  background: var(--select-bg);
+  color: var(--text-selected);
+  font-weight: bold;
+}
+
+.wmp-tracklist th:nth-child(1),
+.wmp-tracklist td:nth-child(1) {
+  width: 30px;
+  text-align: right;
+  color: var(--border-dark);
+}
+
+.wmp-tracklist th:nth-child(3),
+.wmp-tracklist td:nth-child(3) {
+  width: 50px;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+}
+
+.wmp-tracklist tbody tr.playing td:nth-child(1) {
+  color: var(--text-selected);
+}
+
+.wmp-controls {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  background: linear-gradient(to bottom, #04144a, #1f3a85);
+}
+
+.wmp-btn {
+  width: 28px;
+  height: 22px;
+  background: var(--window-bg);
+  font-size: 12px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+  box-shadow: inset -1px -1px 0 var(--border-dark), inset 1px 1px 0 var(--border-mid);
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+  color: var(--text);
+}
+
+.wmp-btn:active {
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark), inset -1px -1px 0 var(--border-mid);
+}
+
+.wmp-progress {
+  flex: 1;
+  height: 14px;
+  margin: 0 6px;
+  cursor: url('../assets/cursors/pointer.png'), pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  background: transparent;
+}
+
+.wmp-progress::-webkit-slider-runnable-track {
+  height: 6px;
+  background: var(--border-light);
+  border: 2px solid;
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark);
+}
+.wmp-progress::-moz-range-track {
+  height: 6px;
+  background: var(--border-light);
+  border: 2px solid;
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark);
+}
+
+.wmp-progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 10px;
+  height: 14px;
+  margin-top: -4px;
+  background: var(--window-bg);
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+  box-shadow: inset -1px -1px 0 var(--border-dark), inset 1px 1px 0 var(--border-mid);
+  border-radius: 0;
+}
+.wmp-progress::-moz-range-thumb {
+  width: 10px;
+  height: 14px;
+  background: var(--window-bg);
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+  box-shadow: inset -1px -1px 0 var(--border-dark), inset 1px 1px 0 var(--border-mid);
+  border-radius: 0;
+}
+
+.wmp-time {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  padding: 2px 6px;
+  border: 2px solid;
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+}

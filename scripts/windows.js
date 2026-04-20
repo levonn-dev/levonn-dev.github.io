@@ -44,8 +44,8 @@ export const WINDOWS = [
     id: 'music',
     title: 'Music',
     icon: 'assets/icons/mediaplayer.png',
-    width: 560,
-    height: 420,
+    width: 640,
+    height: 480,
     src: 'pages/music/index.html',
   },
 ];

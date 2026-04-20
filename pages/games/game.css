@@ -1,0 +1,107 @@
+/* === Shared styles for game sub-pages ====================================== */
+.game-page {
+  padding: 16px 24px;
+  font-family: 'MononokiNerdFont', 'Microsoft Sans Serif', 'Arial', sans-serif;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--border-light);
+  min-height: 100%;
+}
+
+.game-page h1 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 6px;
+}
+
+.game-page h2 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.game-page p { line-height: 1.6; margin-bottom: 10px; }
+
+.game-page a { color: var(--accent); text-decoration: underline; }
+.game-page a:visited { color: var(--accent-visited); }
+
+.game-page .download {
+  display: inline-block;
+  padding: 4px 14px;
+  background: var(--window-bg);
+  border: 2px solid;
+  border-color: var(--border-light) var(--border-darker) var(--border-darker) var(--border-light);
+  box-shadow: inset -1px -1px 0 var(--border-dark), inset 1px 1px 0 var(--border-mid);
+  text-decoration: none;
+  color: var(--text);
+  font-family: inherit;
+}
+.game-page .download:hover { text-decoration: underline; }
+.game-page .download:active {
+  border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
+  box-shadow: inset 1px 1px 0 var(--border-dark), inset -1px -1px 0 var(--border-mid);
+}
+
+.game-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+.game-page th,
+.game-page td {
+  padding: 3px 8px;
+  border: 1px solid var(--border-dark);
+  text-align: left;
+  vertical-align: top;
+}
+.game-page th {
+  background: var(--window-bg);
+  font-weight: bold;
+}
+.game-page tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.03); }
+.game-page .group-row td {
+  background: var(--accent);
+  color: var(--text-selected);
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.game-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 12px 0;
+}
+
+.game-page h3 {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.game-page ul {
+  margin: 6px 0 12px 0;
+  padding-left: 24px;
+}
+.game-page ul li {
+  margin-bottom: 3px;
+  line-height: 1.5;
+}
+.game-page .console-list {
+  column-count: 2;
+  column-gap: 24px;
+}
+.game-page .console-list li {
+  break-inside: avoid;
+}
