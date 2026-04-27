@@ -13,6 +13,15 @@ export const projects = [
     year: 2026,
   },
   {
+    id: 'skills',
+    name: 'Claude Code Skills',
+    icon: 'assets/icons/gear.png',
+    description: 'A collection of skills and plugins for Claude Code.',
+    url: 'https://github.com/levonn-dev/skills',
+    tags: ['claude-code', 'plugins', 'bash', 'markdown'],
+    year: 2026,
+  },
+  {
     id: 'www',
     name: 'This homepage',
     icon: 'assets/icons/computer.png',
