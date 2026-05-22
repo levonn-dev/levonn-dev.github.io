@@ -22,6 +22,20 @@ export const projects = [
     year: 2026,
   },
   {
+    id: 'ro-builder',
+    name: 'RO Builder',
+    icon: 'assets/icons/ragnarok.png',
+    description: 'An LLM-orchestrated build generator for Ragnarok Online. Given a class, server, playstyle, and a' +
+        ' free-form description of what you want, it returns one or more build trajectories: ordered chains of' +
+        ' stat, skill, and gear checkpoints from early game through max-level endgame, with deterministic combat' +
+        ' numbers attached at the load-bearing checkpoints.\n\n' +
+        'The LLM proposes builds and reasons over results; a deterministic calc backend does the math. The calc' +
+        ' backend, the LLM provider, and the server profile are all pluggable.',
+    url: 'https://github.com/levonn-dev/ro-builder',
+    tags: ['go', 'typescript', 'llm', 'k8s'],
+    year: 2026,
+  },
+  {
     id: 'www',
     name: 'This homepage',
     icon: 'assets/icons/computer.png',
