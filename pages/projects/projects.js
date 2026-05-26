@@ -13,6 +13,20 @@ export const projects = [
     year: 2026,
   },
   {
+    id: 'fox-weather',
+    name: 'Fox Weather',
+    icon: 'assets/icons/fox_weather.png',
+    description: 'A Pebble watchface adapted from Pebble Adventure. The background scene changes with live weather' +
+        ' (clear, cloudy, rain, thunder, snow) fetched from Open-Meteo via PebbleKit JS, with a pixel fox sitting or' +
+        ' walking on the ground and the time, date, battery, and temperature overlaid on top.\n\n' +
+        'Animates in short bursts after each minute change and on wrist-shake to stay easy on the battery.' +
+        ' Configurable temperature unit and fox mode via a Clay settings page. Runs on both Pebble Time 2 (color)' +
+        ' and Pebble 2 Duo (B&W).',
+    url: 'https://apps.repebble.com/fox-weather_5841886baf734898822e2899',
+    tags: ['c', 'js', 'pebble', 'watchface'],
+    year: 2026,
+  },
+  {
     id: 'skills',
     name: 'Claude Code Skills',
     icon: 'assets/icons/gear.png',
