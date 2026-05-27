@@ -278,3 +278,18 @@
   border: 2px solid;
   border-color: var(--border-darker) var(--border-light) var(--border-light) var(--border-darker);
 }
+
+/* Responsive: stack the player on narrow screens. Mirrors viewport.js. */
+@media (max-width: 640px), (max-height: 480px) and (pointer: coarse) {
+  .wmp-body { flex-direction: column; }
+  .wmp-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 4px;
+  }
+  .wmp-nav-section { white-space: nowrap; }
+  .wmp-controls { flex-wrap: wrap; }
+  .wmp-btn { width: 36px; height: 30px; }
+}

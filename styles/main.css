@@ -245,6 +245,11 @@ button, a { cursor: url('../assets/cursors/pointer.png'), pointer; }
 .win98-resize-se { bottom: -4px; right: -4px; width: 12px; height: 12px; cursor: se-resize; }
 .win98-resize-sw { bottom: -4px; left: -4px; width: 12px; height: 12px; cursor: sw-resize; }
 
+/* Drag/resize gestures must not scroll or zoom the page on touch devices. */
+.win98-title-bar,
+.win98-resize,
+.desktop-icon { touch-action: none; }
+
 #window-container { position: absolute; inset: 0; pointer-events: none; }
 .win98-window { pointer-events: all; }
 
@@ -252,15 +257,28 @@ button, a { cursor: url('../assets/cursors/pointer.png'), pointer; }
 #taskbar-windows { display: flex; gap: 2px; flex: 1; overflow: hidden; }
 
 .taskbar-win-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   background: var(--window-bg);
   font-family: inherit;
   font-size: 11px;
   padding: 2px 8px;
   max-width: 160px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   height: 24px;
+}
+
+.taskbar-win-btn img {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.taskbar-win-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .taskbar-win-btn.active {
@@ -400,4 +418,73 @@ button, a { cursor: url('../assets/cursors/pointer.png'), pointer; }
   white-space: nowrap;
 }
 .desktop-icon.dragging { opacity: 0.7; }
+
+/* === Responsive ============================================================
+   Mobile boundary mirrors MOBILE_QUERY in scripts/viewport.js - KEEP IN SYNC.
+   =========================================================================== */
+
+/* Coarse pointer (phones + touch tablets): larger window controls + resize
+   handles for fingers. */
+@media (pointer: coarse) {
+  .win98-title-bar { height: 28px; }
+  .win98-title-buttons button { width: 24px; height: 20px; }
+  .win98-resize-n { top: -8px; height: 16px; }
+  .win98-resize-s { bottom: -8px; height: 16px; }
+  .win98-resize-e { right: -8px; width: 16px; }
+  .win98-resize-w { left: -8px; width: 16px; }
+  .win98-resize-ne, .win98-resize-nw,
+  .win98-resize-se, .win98-resize-sw { width: 20px; height: 20px; }
+}
+
+/* Phone: adaptive fullscreen-app mode. */
+@media (max-width: 640px), (max-height: 480px) and (pointer: coarse) {
+  /* Taller taskbar; desktop inset follows via the custom property. */
+  :root { --taskbar-height: 48px; }
+
+  /* Desktop icons reflow into a tappable wrapped grid. position:static makes
+     the JS-assigned inline left/top inert; touch-action:auto restores scroll. */
+  #icon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 8px;
+    padding: 12px;
+  }
+  .desktop-icon {
+    position: static;
+    width: 76px;
+    padding: 8px 4px;
+    touch-action: auto;
+  }
+  .desktop-icon-image,
+  .desktop-icon-image > img { width: 40px; height: 40px; }
+  .desktop-icon span { font-size: 12px; }
+
+  /* Windows are fullscreen (sized by JS _enterFullscreen); hide chrome that
+     doesn't apply on a phone. */
+  .win98-resize { display: none !important; }
+  .win98-maximize { display: none; }
+
+  /* Taskbar becomes a touch app-switcher. */
+  #taskbar { height: 48px; padding: 4px 6px; gap: 6px; }
+  /* Start button becomes an icon-only "Show Desktop" button (it already calls
+     goHome() in mobile). Desktop keeps the classic Start button + menu. */
+  #start-btn {
+    height: 40px;
+    min-width: 40px;
+    justify-content: center;
+    background-image: url('../assets/icons/desktop.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    image-rendering: pixelated;
+  }
+  #start-btn img,
+  #start-btn span { display: none; }
+  #taskbar-windows { overflow-x: auto; overflow-y: hidden; }
+  .taskbar-win-btn { height: 40px; min-width: 44px; padding: 2px; justify-content: center; }
+  .taskbar-win-btn img { width: 24px; height: 24px; }
+  .taskbar-win-label { display: none; }   /* icon-only switcher buttons */
+  #taskbar-clock { display: none; }
+}
 

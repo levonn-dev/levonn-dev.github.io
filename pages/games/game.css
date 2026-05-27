@@ -105,3 +105,9 @@
 .game-page .console-list li {
   break-inside: avoid;
 }
+
+/* Responsive: single-column lists on phones. Mirrors viewport.js. */
+@media (max-width: 640px), (max-height: 480px) and (pointer: coarse) {
+  .game-page { padding: 12px 14px; font-size: 13px; }
+  .game-page .console-list { column-count: 1; }
+}

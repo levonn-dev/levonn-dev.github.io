@@ -53,3 +53,8 @@
 
 a { color: #0000ee; }
 a:visited { color: #551a8b; }
+
+/* Responsive: slightly larger body text on phones. Mirrors viewport.js. */
+@media (max-width: 640px), (max-height: 480px) and (pointer: coarse) {
+  .ie6-page { font-size: 15px; }
+}

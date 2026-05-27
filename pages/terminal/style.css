@@ -49,3 +49,10 @@
   font-size: 12px;
   caret-color: #c0c0c0;
 }
+
+/* Responsive: larger terminal text on phones. Mirrors viewport.js. */
+@media (max-width: 640px), (max-height: 480px) and (pointer: coarse) {
+  .term-output,
+  .term-prompt,
+  .term-input { font-size: 14px; }
+}
