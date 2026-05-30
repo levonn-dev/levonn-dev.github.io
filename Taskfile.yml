@@ -30,18 +30,8 @@ tasks:
       - python3 -m http.server {{.PORT}} --bind {{.HOST}}
     silent: false
 
-  open:
-    desc: Open the site in the default browser
-    cmds:
-      - cmd: xdg-open http://{{.HOST}}:{{.PORT}}
-        platforms: [linux]
-      - cmd: open http://{{.HOST}}:{{.PORT}}
-        platforms: [darwin]
-      - cmd: start http://{{.HOST}}:{{.PORT}}
-        platforms: [windows]
-
   dev:
     desc: Serve and open in browser
-    deps: [check, serve]
+    deps: [check]
     cmds:
-      - task: open
+      - task: serve
