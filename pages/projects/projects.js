@@ -27,6 +27,18 @@ export const projects = [
     year: 2026,
   },
   {
+    id: 'setup-pebble',
+    name: 'Setup Pebble',
+    icon: 'assets/icons/setup-pebble.png',
+    description: 'A GitHub Action that sets up the Pebble (Core Devices) SDK build environment and, optionally,' +
+        ' compiles a Pebble app or watchface into a .pbw. It behaves like setup-node or setup-go: it installs the' +
+        ' toolchain so later steps can run pebble commands, and with build: true it runs pebble build and exposes' +
+        ' the resulting .pbw as an output.',
+    url: 'https://github.com/marketplace/actions/setup-pebble-sdk',
+    tags: ['github-actions', 'pebble', 'ci', 'bash'],
+    year: 2026,
+  },
+  {
     id: 'skills',
     name: 'Claude Code Skills',
     icon: 'assets/icons/gear.png',
@@ -47,6 +59,20 @@ export const projects = [
         ' backend, the LLM provider, and the server profile are all pluggable.',
     url: 'https://github.com/levonn-dev/ro-builder',
     tags: ['go', 'typescript', 'llm', 'k8s'],
+    year: 2026,
+  },
+  {
+    id: 'notepad',
+    name: 'Multiplayer Notepad',
+    icon: 'assets/icons/wordpad.png',
+    description: 'A real-time collaborative notepad with four editor variants (rich text, plain code, Ace, and a' +
+        ' user-list demo), all synced through the Firebase Realtime Database. Built as a stripped-down fork of' +
+        " Google's now-archived Firepad examples page.\n\n" +
+        'The page is gated behind Sign in with Google, with an email allowlist enforced entirely by Firebase' +
+        ' Security Rules, so there is no server-side code. Zero build step: plain static HTML, CSS, and JS that' +
+        ' deploys anywhere.',
+    url: 'https://github.com/levonn-dev/notepad',
+    tags: ['html', 'js', 'css', 'firebase', 'oauth'],
     year: 2026,
   },
   {
