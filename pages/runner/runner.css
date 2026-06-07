@@ -1,0 +1,36 @@
+.runner-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  background: #6ba4ff;            /* retro sky */
+  touch-action: manipulation;     /* avoid double-tap-zoom delaying tap-to-jump */
+}
+
+/* Mobile portrait: the runner window is fullscreen and taller than it is wide,
+   which squashes the 600x180 landscape game into a thin strip. Rotate the
+   canvas 90deg so the game runs along the long (vertical) screen axis. The game
+   reads no pointer coordinates (tap anywhere = jump; keyboard is
+   document-level), so this visual-only rotation needs no input remapping. The
+   640px breakpoint matches the site's mobile boundary in scripts/viewport.js. */
+@media (max-width: 640px) and (orientation: portrait) {
+  /* Become the positioning context and clip the rotated canvas's (unrotated)
+     bounding box so it cannot introduce scrollbars. */
+  .win98-content:has(> canvas.runner-canvas) {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .runner-canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Pre-rotation width becomes the on-screen height: fill the content height
+       (viewport minus the ~48px mobile taskbar, ~28px title bar, and chrome).
+       The 300vw cap keeps the on-screen width (= 0.3 x this) under ~90vw on
+       very narrow screens. height:auto preserves the 10:3 aspect ratio. */
+    width: min(calc(100vh - 88px), 300vw);
+    height: auto;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
