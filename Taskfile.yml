@@ -24,6 +24,12 @@ tasks:
         done < <(find scripts pages -name "*.js" | sort)
         $all_ok && echo "All files OK" || exit 1
 
+  test:
+    desc: Run unit tests
+    deps: [check]
+    cmds:
+      - node --test
+
   serve:
     desc: Start local HTTP server (required as ES modules don't work over file://)
     cmds:
@@ -32,6 +38,6 @@ tasks:
 
   dev:
     desc: Serve and open in browser
-    deps: [check]
+    deps: [test]
     cmds:
       - task: serve

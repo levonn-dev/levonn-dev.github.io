@@ -1,6 +1,7 @@
 import { WINDOWS } from './windows.js';
 import { extractAssets } from './dom.js';
 import { isMobile, onViewportChange } from './viewport.js';
+import { initKonami } from './konami.js';
 
 // Exposed globally so page scripts (e.g. terminal.js) can call windowManager.open()
 window.windowManager = null;
@@ -14,6 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
   iconGrid.render();
   taskbar.render();
   clock.start();
+
+  initKonami(() => window.windowManager.openDynamic({
+    id: 'runner',
+    title: 'Cursor Runner',
+    icon: 'assets/cursors/default.png',
+    width: 640,
+    height: 280,
+    src: 'pages/runner/index.html',
+  }));
 });
 
 // === WindowManager ============================================================
