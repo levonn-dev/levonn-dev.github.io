@@ -235,3 +235,22 @@ Push the repository. No build step required. All asset paths are root-relative a
 - **Icon positions** are saved to `localStorage` and persist across refreshes. Clear local storage to reset to defaults.
 - **Window content is cached** per window entry. A page's HTML and assets are fetched on first open and reused on subsequent opens. Refresh the page to pick up content changes during development.
 - **Dynamic windows** (project detail dialogs, game sub-windows) are tracked separately from the static window registry; they don't appear in terminal commands like `ls`.
+
+## License
+
+The **code** in this repository is licensed under the MIT License (see `LICENSE`):
+the desktop shell, app chrome templates (`templates/`, `scripts/`), the terminal
+and its command framework, and the per-page scaffolding (`init.js`, `index.html`,
+loader glue) that wires them together. The README's "Adding Content" section
+documents how to drive it, so reusers can build their own site on the engine.
+
+The following are reserved and **not** covered by the MIT License:
+
+- **Personal content** — `pages/resume/content.html`, `pages/info/content.html`,
+  and the project and game write-ups (`pages/projects/projects.js`, `pages/games/`).
+  All rights reserved.
+- **Media** — `assets/music/`, `assets/downloads/`, and `assets/images/`.
+  All rights reserved.
+- **Win98 artwork** — `assets/icons/`, `assets/cursors/`, and `assets/fonts/`.
+  Windows 98-style artwork, property of their respective owners, included for
+  personal/demonstration use only.
