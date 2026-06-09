@@ -1,5 +1,5 @@
 export default {
-  name: 'ls',
+  name: 'dir',
   description: 'List available windows',
   execute(_args, terminal) {
     terminal.print('Windows:');
