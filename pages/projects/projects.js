@@ -1,8 +1,8 @@
 export const projects = [
   {
     id: 'vgkeep',
-    name: 'VG Keep',
-    icon: 'assets/icons/vg-keep.png',
+    name: 'vgkeep',
+    icon: 'assets/icons/vgkeep.png',
     description: 'A video-game collection tracker with granular per-item detail. Five Go microservices behind an' +
         ' APISIX gateway plus a React SPA, with OIDC login, IGDB metadata enrichment, and PriceCharting market' +
         ' pricing. Deployed to Kubernetes from Helm and Tilt with full observability through OpenTelemetry traces' +
