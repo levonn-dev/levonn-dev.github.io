@@ -1,15 +1,15 @@
 export const projects = [
   {
-    id: 'vg-collect',
-    name: 'VG Collect',
-    icon: 'assets/icons/vg-collect.png',
+    id: 'vgkeep',
+    name: 'VG Keep',
+    icon: 'assets/icons/vg-keep.png',
     description: 'A video-game collection tracker with granular per-item detail. Five Go microservices behind an' +
         ' APISIX gateway plus a React SPA, with OIDC login, IGDB metadata enrichment, and PriceCharting market' +
         ' pricing. Deployed to Kubernetes from Helm and Tilt with full observability through OpenTelemetry traces' +
         ' stitched from the browser through the gateway into whichever service and database answered the call.' +
         ' Includes Grafana dashboards and alert rules with runbooks.' +
         ' Verified end to end with Playwright journeys, per-service test suites, and Bruno flows.',
-    url: 'https://github.com/levonn-dev/vg-collect',
+    url: 'https://github.com/levonn-dev/vgkeep',
     tags: ['go', 'typescript', 'react', 'k8s', 'helm', 'microservices'],
     year: 2026,
   },
