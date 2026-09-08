@@ -7,7 +7,7 @@ const contentEl = document.querySelector(
 if (contentEl) {
   const html = await (await fetch('pages/resume/content.html')).text();
   await loadIE6Template(contentEl, {
-    url: 'file:///C:/Documents/Resume-v5.html',
+    url: 'file:///C:/Documents/Resume-v6.html',
     html,
   });
 }
