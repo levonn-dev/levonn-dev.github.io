@@ -66,6 +66,18 @@ export const projects = [
         year: 2026,
     },
     {
+        id: 'wsl-toolchains',
+        name: 'WSL Toolchains for IDEA',
+        icon: 'assets/icons/wsl-toolchains.png',
+        description: 'An IntelliJ IDEA plugin that brings back the WSL toolchain option hidden by the Marketplace' +
+            ' CLion plugin (Native Build Tools). IDEA\'s toolchains service answers false for the WSL, Remote Host,' +
+            ' and Docker kinds, so they never appear in the picker; this plugin overrides that service so WSL is' +
+            ' offered again.',
+        url: 'https://github.com/levonn-dev/idea-wsl-toolchains',
+        tags: ['java', 'intellij', 'plugin', 'maven', 'wsl'],
+        year: 2026,
+    },
+    {
         id: 'skills',
         name: 'Claude Code Skills',
         icon: 'assets/icons/gear.png',
