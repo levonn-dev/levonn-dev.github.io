@@ -27,4 +27,11 @@ export const games = [
     width:  500,
     height: 380,
   },
+  {
+    id: 'wotes',
+    name: 'Warriors of the Eternal Sun',
+    icon: 'assets/icons/wotes.png',
+    width:  500,
+    height: 380,
+  },
 ];
