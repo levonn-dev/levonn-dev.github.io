@@ -1,5 +1,18 @@
 export const projects = [
     {
+        id: 'wotes-oltec',
+        name: 'Oltec Hills Patch',
+        icon: 'assets/icons/wotes-oltec.png',
+        description: 'A fan patch for Dungeons & Dragons: Warriors of the Eternal Sun on the Sega Genesis.' +
+            ' It adds a fourth outdoor region, the Oltec Hills, true to the Hollow World book.\n\n' +
+            'Written in 68000 assembly, cross-compiled with GCC and injected into the 2 MB expansion with [mdrom](mdrom). Every map is drawn' +
+            ' in Tiled and converted into the game\'s tables at build time by a Go tool. Shipped as BPS patches for' +
+            ' the original game and for planetchili\'s V1.0 and V2.0 patches.',
+        url: 'https://github.com/levonn-dev/wotes-oltec',
+        tags: ['m68k', 'asm', 'go', 'mega-drive', 'rom-hacking', 'tiled'],
+        year: 2026,
+    },
+    {
         id: 'mdrom',
         name: 'mdrom',
         icon: 'assets/icons/mdrom.png',
@@ -34,7 +47,8 @@ export const projects = [
             ' your real world step count as tracked by a background worker progress. It also includes multiple minigames,' +
             ' random encounters, biomes, fully integrated stats which effect all other aspects of the game, and a fully' +
             ' realized XP and Level progression system. Additionally it has nominal text input system based on the watch' +
-            ' interface allowing for very quick binary-like search through full character sets.',
+            ' interface allowing for very quick binary-like search through full character sets.\n\n' +
+            'Built and released through GitHub Actions with [Setup Pebble](setup-pebble).',
         url: 'https://apps.repebble.com/d50eaec84a5e410298a3d2c7',
         tags: ['c', 'pebble'],
         year: 2026,
@@ -48,7 +62,8 @@ export const projects = [
             ' walking on the ground and the time, date, battery, and temperature overlaid on top.\n\n' +
             'Animates in short bursts after each minute change and on wrist-shake to stay easy on the battery.' +
             ' Configurable temperature unit and fox mode via a Clay settings page. Runs on both Pebble Time 2 (color)' +
-            ' and Pebble 2 Duo (B&W).',
+            ' and Pebble 2 Duo (B&W).\n\n' +
+            'Built and released through GitHub Actions with [Setup Pebble](setup-pebble).',
         url: 'https://apps.repebble.com/fox-weather_5841886baf734898822e2899',
         tags: ['c', 'js', 'pebble', 'watchface'],
         year: 2026,
