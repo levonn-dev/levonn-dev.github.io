@@ -4,13 +4,17 @@
 // container, inject them into document.head (deduped by href/src), and remove
 // them from the container. Uses iteration rather than selector-with-interpolation
 // for dedup so attribute values with quotes or special chars cannot break it.
+// Resolves once the injected stylesheets have loaded, so content can be
+// measured styled.
 export function extractAssets(container) {
+  const loading = [];
   container.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute('href');
     if (href && !hasStylesheet(href)) {
       const el = document.createElement('link');
       el.rel = 'stylesheet';
       el.href = href;
+      loading.push(new Promise(resolve => { el.onload = el.onerror = resolve; }));
       document.head.appendChild(el);
     }
     link.remove();
@@ -26,6 +30,7 @@ export function extractAssets(container) {
     }
     script.remove();
   });
+  return Promise.all(loading);
 }
 
 function hasStylesheet(href) {

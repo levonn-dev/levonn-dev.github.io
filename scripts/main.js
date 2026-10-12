@@ -116,6 +116,19 @@ class WindowManager {
     return this._show(config.id);
   }
 
+  // Sizes a window's height to its content, kept within the desktop. Callers
+  // that fill a window after opening it (project details) call this once done.
+  fitToContent(id) {
+    const win = this._windows.get(id);
+    if (!win || this.mobile || win.state === 'maximized') return;
+    const desktop = document.getElementById('desktop');
+    const margin  = 8;
+    win.el.style.height = 'auto';
+    const height = Math.min(win.el.offsetHeight, desktop.clientHeight - win.el.offsetTop - margin);
+    win.el.style.height = `${height}px`;
+    win.config.height   = height;   // the windowed rect restored after mobile mode keeps the fit
+  }
+
   // == Private ===============================================================
 
   _show(id) {
@@ -414,7 +427,7 @@ class WindowManager {
       if (config.html) {
         const tmp = document.createElement('div');
         tmp.innerHTML = config.html;
-        extractAssets(tmp);
+        await extractAssets(tmp);
         content.innerHTML = tmp.innerHTML;
         return;
       }
@@ -430,7 +443,7 @@ class WindowManager {
         // into document.head so pages remain self-contained.
         const tmp = document.createElement('div');
         tmp.innerHTML = html;
-        extractAssets(tmp);
+        await extractAssets(tmp);
 
         content.innerHTML = tmp.innerHTML;
       } catch (err) {
