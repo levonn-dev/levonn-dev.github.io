@@ -6,6 +6,7 @@
 .project-detail-year { color: #666; }
 .project-detail-divider { border: none; border-top: 1px solid var(--border-dark); margin: 6px 0; }
 .project-detail-desc { margin-bottom: 8px; line-height: 1.5; white-space: pre-line; }
+.project-detail-desc a { color: var(--accent); text-decoration: underline; }
 .project-detail-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
 .project-detail-tags span {
   background: var(--window-bg);

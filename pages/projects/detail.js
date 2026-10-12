@@ -1,5 +1,6 @@
 import { loadExplorerTemplate } from '../../scripts/explorer.js';
 import { projects } from './projects.js';
+import { splitLinks } from './links.js';
 
 const contentEl = document.querySelector(
   '.win98-window[data-window-id="projects"] .win98-content'
@@ -34,7 +35,7 @@ async function openDetail(project) {
     title:  project.name,
     icon:   project.icon,
     width:  430,
-    height: 310,
+    height: 310,   // initial; fitted to the content once populated
     html:   detailTemplateCache,
   });
 
@@ -48,8 +49,21 @@ async function openDetail(project) {
   content.querySelector('#detail-icon').src                = project.icon;
   content.querySelector('#detail-name').textContent        = project.name;
   content.querySelector('#detail-year').textContent        = project.year;
-  content.querySelector('#detail-description').textContent = project.description;
   content.querySelector('#detail-url').href                = project.url;
+
+  content.querySelector('#detail-description').replaceChildren(
+    ...splitLinks(project.description).map(seg => {
+      if (!seg.id) return seg.text;
+      const link = document.createElement('a');
+      link.textContent = seg.text;
+      link.href = '#';
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        openDetail(projects.find(p => p.id === seg.id));
+      });
+      return link;
+    })
+  );
 
   const tagsEl = content.querySelector('#detail-tags');
   tagsEl.replaceChildren(
@@ -60,5 +74,6 @@ async function openDetail(project) {
     })
   );
 
+  window.windowManager.fitToContent(id);
   populated.add(id);
 }

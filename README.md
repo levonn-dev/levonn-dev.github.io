@@ -164,6 +164,7 @@ Edit `pages/projects/projects.js` and add one object:
 ```
 
 No other changes. The explorer grid and detail dialog populate from this config.
+A `[label](project-id)` in a description renders as a link that opens that project's entry.
 
 ### New game
 
